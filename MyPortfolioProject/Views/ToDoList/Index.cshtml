@@ -13,11 +13,11 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Yapılacaklar Listesi</div>
+                        <div class="card-title">Hatırlatıcı Listesi</div>
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            Yapılacaklar ile ilgili işlemleri aşağıdaki panelden gerçekleştirebilirsiniz.
+                            Hatırlatıcı ile ilgili işlemleri aşağıdaki panelden gerçekleştirebilirsiniz.
                         </div>
                         <table class="table mt-3">
                             <thead>
@@ -40,20 +40,19 @@
                                         <td>@item.Date.ToShortDateString()</td>
                                         @if (item.Status == true)
                                         {
-                                            <td><a href="/ToDoList/ChangeToDoListStatusToFalse/@item.Id" class="btn btn-dark">Yapılmadı Olarak İşaretle</a></td>
+                                            <td><a href="/ToDoList/ChangeToDoListStatusToFalse/@item.Id" class="btn btn-outline-dark">Yapılmadı Olarak İşaretle</a></td>
                                         }
                                         else
                                         {
-                                            <td><a href="/ToDoList/ChangeToDoListStatusToTrue/@item.Id" class="btn btn-info">Yapıldı OLarak İşaretle</a></td>
-                                        }
-
-                                        <td><a href="/ToDoList/DeleteToDoList/@item.Id" class="btn btn-danger">Sil</a></td>
+                                            <td><a href="/ToDoList/ChangeToDoListStatusToTrue/@item.Id" class="btn btn-outline-info">Yapıldı OLarak İşaretle</a></td>
+                                        }         
                                         <td><a href="/ToDoList/UpdateToDoList/@item.Id" class="btn btn-success">Güncelle</a></td>
+                                        <td><a href="/ToDoList/DeleteToDoList/@item.Id" class="btn btn-danger">Sil</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/ToDoList/CreateToDoList/" class="btn btn-primary">Yeni Yapılacak İşlem Girişi</a>
+                        <a href="/ToDoList/CreateToDoList/" class="btn btn-outline-primary">Yeni Yapılacak İşlem Girişi</a>
                     </div>
                 </div>
             </div>

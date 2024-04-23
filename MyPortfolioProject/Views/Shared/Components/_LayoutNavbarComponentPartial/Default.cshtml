@@ -24,28 +24,28 @@
                 </div>
             </form>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                <li class="nav-item dropdown hidden-caret">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="la la-envelope"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Gelen Mesajlar</a>
-                        <a class="dropdown-item" href="#">Yeni Mesaj</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">İletişim Paneli</a>
-                    </div>
-                </li>
 
 
+                @await Component.InvokeAsync("UnreadMessageList")
 
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="la la-bell"></i>
-                        <span class="notification">@ViewBag.toDoListCount</span>
+                        @if (ViewBag.toDoListCount != 0)
+                        {
+                            <span class="notification">@ViewBag.toDoListCount</span>
+                        }
                     </a>
                     <ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
                         <li>
-                            <div class="dropdown-title">@ViewBag.toDoListCount Yeni Bildiriminiz Var</div>
+                            @if (ViewBag.toDoListCount != 0)
+                            {
+                                <div class="dropdown-title">@ViewBag.toDoListCount Yeni Hatırlatıcınız Var</div>
+                            }
+                            else
+                            {
+                                <div class="dropdown-title">Henüz Yeni Bir Hatırlatıcınız Yok</div>
+                            }
                         </li>
                         <li>
                             <div class="notif-center">
@@ -69,11 +69,11 @@
                                     <a href="#">
                                         <div class="notif-content">
                                             <span class="block" style="margin-left:1em;">
-                                              Yeni bildirim yok
-                                            </span> 
+                                                Yeni hatırlatıcı yok
+                                            </span>
                                         </div>
                                     </a>
-                                } 
+                                }
 
                             </div>
                         </li>

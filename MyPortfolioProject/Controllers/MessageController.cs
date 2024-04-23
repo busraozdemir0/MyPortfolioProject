@@ -40,7 +40,9 @@ namespace MyPortfolioProject.Controllers
 		public IActionResult MessageDetail(int id)
 		{
 			var value = _context.Messages.Find(id);
-			return View(value);
+            value.IsRead = true; // Mesaj detayina gidildiyse mesaj okundu bilgisi true yapiliyor.
+            _context.SaveChanges();
+            return View(value);
 		}
 		[HttpGet]
         public IActionResult SendMessage()

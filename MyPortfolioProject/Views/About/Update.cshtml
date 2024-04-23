@@ -1,0 +1,37 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="content" style="margin-bottom:20em;">
+    <div class="container-fluid">
+        <h4 class="page-title">Hakkımda</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Hakkımda Bilgisi Güncelleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="Id" />
+                            <label>Başlık</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Alt Açıklama</label>
+                            <input type="text" asp-for="SubDescription" class="form-control" />
+                            <br />
+                            <label>Hakkımda Detay</label>
+                            <textarea rows="4" class="form-control" asp-for="Details"></textarea>
+                            <br />
+                            <button class="btn btn-success">Güncelle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

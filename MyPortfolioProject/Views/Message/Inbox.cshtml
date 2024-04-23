@@ -39,11 +39,11 @@
                                         <td><a href="/Message/MessageDetail/@item.Id" class="btn btn-warning">Mesajı Aç</a></td>
                                         @if (item.IsRead == true)
                                         {
-                                            <td><a href="/Message/ChangeIsReadToFalse/@item.Id" class="btn btn-dark">Okunmadı Olarak İşaretle</a></td>
+                                            <td><a href="/Message/ChangeIsReadToFalse/@item.Id" class="btn btn-outline-dark">Okunmadı Olarak İşaretle</a></td>
                                         }
                                         else
                                         {
-                                            <td><a href="/Message/ChangeIsReadToTrue/@item.Id" class="btn btn-info">Okundu OLarak İşaretle</a></td>
+                                            <td><a href="/Message/ChangeIsReadToTrue/@item.Id" class="btn btn-outline-info">Okundu Olarak İşaretle</a></td>
                                         }
                                         <td><a href="/Message/DeleteMessage/@item.Id" class="btn btn-danger">Sil</a></td>
                                     </tr>
