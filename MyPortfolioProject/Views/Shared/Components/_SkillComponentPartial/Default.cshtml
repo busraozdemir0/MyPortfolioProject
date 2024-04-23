@@ -4,12 +4,16 @@
     <h3>Programlama Dilleri & Teknolojiler</h3>
 
     <ul class="skill-bars">
-        
-        @foreach(var item in Model){
-        <li>
-            <div class="progress percent @item.Value"><span>@item.Value%</span></div>
-            <strong>@item.Title</strong>
-        </li>
+
+        @foreach (var item in Model)
+        {
+            // div class'inin yuzde kismini kullanicinin ekledigi skill yuzdesi kadar ayarliyoruz.
+            var percentage = item.Value.ToString();
+            var progressClass = "progress percent" + percentage;
+            <li>
+                <div class="@progressClass"><span>@item.Value%</span></div>
+                <strong>@item.Title</strong>
+            </li>
         }
     </ul>
 </div>
