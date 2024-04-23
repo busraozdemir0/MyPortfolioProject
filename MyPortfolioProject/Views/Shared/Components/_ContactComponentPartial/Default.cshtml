@@ -7,13 +7,13 @@
     <div class="row narrow section-intro">
         <div class="col-full">
             <h3>İletişim</h3>
-            <h1>Bana Ulaşın.</h1>
-
-            <p class="lead">Sorularınız ve merak ettiginiz her şey için bana ulaşabilirsiniz. En kısa zamanda geri dönüş yapacağımdan emin olabilirsiniz.</p>
+            <h1>@ViewBag.title</h1>
+            <p class="lead">@ViewBag.description</p>
         </div>
     </div>
 
     <div class="row contact__main">
+
         <div class="col-eight tab-full contact__form">
             <form asp-controller="Message" asp-action="SendMessage" id="contactForm" method="post">
                 <fieldset>
@@ -44,34 +44,16 @@
             </form>
 
             <!-- Mesaj gonderiminden sonra bilgi mesajinin gosterilecegi alan -->
-            <div id="infoMessageArea"></div>
+            <div id="infoMessageArea">
 
+            </div>
+          
         </div>
-        <div class="col-four tab-full contact__infos">
-            <h4 class="h06">Phone</h4>
-            <p>
-                Phone: (+63) 555 1212<br>
-                Mobile: (+63) 555 0100<br>
-                Fax: (+63) 555 0101
-            </p>
-
-            <h4 class="h06">Email</h4>
-            <p>
-                someone@holawebsite.com<br>
-                info@holawebsite.com
-            </p>
-
-            <h4 class="h06">Address</h4>
-            <p>
-                1600 Amphitheatre Parkway<br>
-                Mountain View, CA<br>
-                94043 US
-            </p>
-        </div>
-
+        
+            @await Component.InvokeAsync("ContactInfoComponentPartial")
+       
     </div>
-
-</section> <!-- end s-contact -->
+</section>
 
 <script>
     document.getElementById('contactForm').addEventListener('submit', function (event) {
