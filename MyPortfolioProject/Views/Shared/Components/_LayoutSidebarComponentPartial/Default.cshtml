@@ -66,11 +66,17 @@
                     <p>Hakkımda</p>
                 </a>
             </li>
-           
+
             <li class="nav-item">
                 <a asp-controller="Experience" asp-action="ExperienceList">
+                    <i class="la la-suitcase"></i>
+                    <p>Deneyimlerim</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Skill" asp-action="Index">
                     <i class="la la-star"></i>
-                    <p>Deneyimler</p>
+                    <p>Yeteneklerim</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -85,28 +91,17 @@
                     <p>İletişim Bilgileri</p>
                 </a>
             </li>
-            @* <li class="nav-item">
-            <a href="typography.html">
-            <i class="la la-image"></i>
-            <p>Portfolyo</p>
-            </a>
-            </li>
             <li class="nav-item">
-            <a href="icons.html">
-            <i class="la la-suitcase"></i>
-            <p>Yeteneklerim</p>
-            </a>
-            </li> *@
-            <li class="nav-item">
-                <a href="icons.html">
-                    <i class="la la-thumbs-o-up"></i>
-                    <p>Referanslarım</p>
+                <a href="typography.html">
+                    <i class="la la-image"></i>
+                    <p>Portfolyo</p>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a href="icons.html">
-                    <i class="la la-fonticons"></i>
-                    <p>Sosyal Medya</p>
+                <a asp-controller="Testimonial" asp-action="Index">
+                    <i class="la la-thumbs-o-up"></i>
+                    <p>Referanslarım</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -115,12 +110,12 @@
                     <p>Siteye Git</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="icons.html">
-                    <i class="la la-arrow-left"></i>
-                    <p>Çıkış Yap</p>
-                </a>
-            </li>
+            @*  <li class="nav-item">
+            <a href="icons.html">
+            <i class="la la-arrow-left"></i>
+            <p>Çıkış Yap</p>
+            </a>
+            </li> *@
         </ul>
     </div>
 </div>

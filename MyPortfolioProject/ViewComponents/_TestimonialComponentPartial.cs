@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolioProject.DAL.Context;
 
 namespace MyPortfolioProject.ViewComponents
 {
     public class _TestimonialComponentPartial:ViewComponent
     {
+        AppDbContext _context = new AppDbContext();
         public IViewComponentResult Invoke()
         {
-            return View();
+            var testimonials = _context.Testimonials.ToList();
+            return View(testimonials);
         }
     }
 }
