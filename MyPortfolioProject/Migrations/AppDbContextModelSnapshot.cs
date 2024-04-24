@@ -130,6 +130,25 @@ namespace MyPortfolioProject.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("MyPortfolioProject.DAL.Entities.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("MyPortfolioProject.DAL.Entities.Message", b =>
                 {
                     b.Property<int>("Id")
@@ -177,9 +196,8 @@ namespace MyPortfolioProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SubTitle")
                         .IsRequired()
@@ -194,6 +212,8 @@ namespace MyPortfolioProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
 
                     b.ToTable("Portfolios");
                 });
@@ -296,6 +316,20 @@ namespace MyPortfolioProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ToDoLists");
+                });
+
+            modelBuilder.Entity("MyPortfolioProject.DAL.Entities.Portfolio", b =>
+                {
+                    b.HasOne("MyPortfolioProject.DAL.Entities.Image", "Image")
+                        .WithMany("Portfolios")
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("MyPortfolioProject.DAL.Entities.Image", b =>
+                {
+                    b.Navigation("Portfolios");
                 });
 #pragma warning restore 612, 618
         }

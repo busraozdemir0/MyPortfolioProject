@@ -1,4 +1,9 @@
+using MyPortfolioProject.DAL.Extensions;
+using MyPortfolioProject.Helpers.Images;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.LoadDataLayerExtension(builder.Configuration); // ImageHelper için DI cercevesi
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
