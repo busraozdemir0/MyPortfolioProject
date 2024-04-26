@@ -1,0 +1,39 @@
+﻿@model List<Message>
+
+<div class="col-md-6">
+    <div class="card" style="height:20em; overflow:auto;">
+        <div class="card-header">
+            <h4 class="card-title">Okunmamış Mesajlar</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-head-bg-dark table-striped table-hover">
+                @if (Model.Count != 0)
+                {
+                <thead>
+                    <tr>
+                        <th scope="col">Adı Soyadı</th>
+                        <th scope="col">Konu</th>
+                        <th scope="col">Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>           
+                            <td>@item.NameSurname</td>
+                            <td>@item.Subject</td>
+                            <td>@item.SendDate.ToString("dd MMM yyyy HH:mm")</td>
+                            <td> <a data-id="@item.Id" asp-controller="Message" asp-action="MessageDetail" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm"> Oku </a></td>           
+                        </tr>
+                    }
+
+                    </tbody>
+                }
+                else
+                {
+                    <p class="text-center">Henüz yeni bir mesajınız yok.</p>
+                }
+            </table>
+        </div>
+    </div>
+</div>

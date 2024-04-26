@@ -1,0 +1,60 @@
+﻿@model List<ToDoList>
+
+@{
+    int count = 1;
+}
+<div class="col-md-6">
+    <div class="card card-tasks" style="height:20em; overflow:auto;">
+        <div class="card-header ">
+            <h4 class="card-title">Yapılacaklar</h4>
+        </div>
+        <div class="card-body ">
+            <div class="table-full-width">
+                <table class="table">
+                    @if (Model.Count != 0)
+                    {
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                        #
+                                        </label>
+                                    </div>
+                                </th>
+                                <th>Görev</th>
+                                <th>Tarihi</th>
+                                <th>Durum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                @count
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Date.ToString("dd MMM yyyy")</td>
+                                    @if (item.Status == false)
+                                    {
+                                        <td><a href="/ToDoList/ChangeToDoListStatusToTrue/@item.Id" class="btn btn-outline-info btn-sm"><i class="la la-check"></i></a></td>
+                                    }
+                                </tr>
+                                count++;
+                            }
+                        </tbody>
+                    }
+                    else
+                    {
+                        <p class="text-center">Henüz yeni bir hatırlatıcınız yok.</p>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,8 @@ namespace MyPortfolioProject.ViewComponents
 {
     public class _StatisticComponentPartial:ViewComponent
     {
+        // Ana sayfadaki istatistik kismi icin
+
         private readonly AppDbContext _context;
 
         public _StatisticComponentPartial(AppDbContext context)

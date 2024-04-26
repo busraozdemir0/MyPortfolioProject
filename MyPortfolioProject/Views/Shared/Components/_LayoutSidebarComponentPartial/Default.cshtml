@@ -37,9 +37,9 @@
         </div>
         <ul class="nav">
             <li class="nav-item">
-                <a href="#">
-                    <i class="la la-dashboard"></i>
-                    <p>Dashboard</p>
+                <a asp-controller="Statistic" asp-action="Index">
+                    <i class="la la-bar-chart"></i>
+                    <p>İstatistikler</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -48,16 +48,11 @@
                     <p>Gelen Kutusu</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a asp-controller="Statistic" asp-action="Index">
-                    <i class="la la-bar-chart"></i>
-                    <p>İstatistikler</p>
-                </a>
-            </li>
+          
             <li class="nav-item">
                 <a asp-controller="ToDoList" asp-action="Index">
                     <i class="la la-bell"></i>
-                    <p>Hatırlatıcı</p>
+                    <p>Yapılacaklar</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -96,7 +91,12 @@
                     <p>İletişim Bilgileri</p>
                 </a>
             </li>
-           
+            <li class="nav-item">
+                <a asp-controller="SocialMedia" asp-action="Index">
+                    <i class="la la-fonticons"></i>
+                    <p>Sosyal Medya</p>
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a asp-controller="Testimonial" asp-action="Index">
