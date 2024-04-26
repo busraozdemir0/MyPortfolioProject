@@ -5,7 +5,13 @@ namespace MyPortfolioProject.ViewComponents
 {
     public class _TestimonialComponentPartial:ViewComponent
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public _TestimonialComponentPartial(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IViewComponentResult Invoke()
         {
             var testimonials = _context.Testimonials.ToList();

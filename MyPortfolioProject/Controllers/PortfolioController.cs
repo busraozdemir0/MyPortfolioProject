@@ -10,15 +10,16 @@ namespace MyPortfolioProject.Controllers
 {
 	public class PortfolioController : Controller
 	{
-		AppDbContext _context = new AppDbContext();
-		private readonly IImageHelper _imageHelper;
+        private readonly AppDbContext _context;
+        private readonly IImageHelper _imageHelper;
 
-		public PortfolioController(IImageHelper imageHelper)
-		{
-			_imageHelper = imageHelper;
-		}
+        public PortfolioController(IImageHelper imageHelper, AppDbContext context)
+        {
+            _imageHelper = imageHelper;
+            _context = context;
+        }
 
-		public IActionResult Index()
+        public IActionResult Index()
 		{
 			var porfolios = _context.Portfolios.Include(i => i.Image).ToList();
 			return View(porfolios);
@@ -39,7 +40,7 @@ namespace MyPortfolioProject.Controllers
 				await _context.Images.AddAsync(image);
 				await _context.SaveChangesAsync();
 				
-				// Entity Constructure sayesinde resmiyle beraber Haber olusturduk.
+				// Entity Constructure sayesinde resmiyle beraber Portfolio olusturduk.
 				Portfolio portfolio = new Portfolio
 				{
 					Title = viewModel.Title,
@@ -55,8 +56,8 @@ namespace MyPortfolioProject.Controllers
 			}
 			else // Resim secmemisse
 			{
-				var portfolio = new Portfolio() // Resim haricindeki alanlari report nesnesine aktar
-				{
+				var portfolio = new Portfolio() // Resim haricindeki alanlari Portfolio nesnesine aktar
+                {
 					Title = viewModel.Title,
 					SubTitle = viewModel.SubTitle,
 					Description = viewModel.Description,
@@ -72,6 +73,8 @@ namespace MyPortfolioProject.Controllers
 		public IActionResult Update(int portfolioId)
 		{
 			var value = _context.Portfolios.Include(i => i.Image).Where(x => x.Id == portfolioId).FirstOrDefault();
+			ViewBag.imageFileName = value.Image.FileName;
+
 			PortfolioUpdateViewModel viewModel = new PortfolioUpdateViewModel()
 			{
 				Id = value.Id,
@@ -90,8 +93,8 @@ namespace MyPortfolioProject.Controllers
 
 			if (viewModel.Photo != null) // Eger bir resim secilmisse
 			{
-				if (viewModel.ImageId != null) // Eger haber guncelleme sirasında ImageId bos degilse yani bir resim varsa o resmi silecegiz.
-					_imageHelper.Delete(portfolio.Image.FileName); // Once haber'de var olan resmi silecek
+				if (viewModel.ImageId != null) // Eger portfolyo guncelleme sirasinda ImageId bos degilse yani bir resim varsa o resmi silecegiz.
+                    _imageHelper.Delete(portfolio.Image.FileName); // Once portfolyo'da var olan resmi silecek
 
 				// Ardindan yeni bir image yukleme islemi
 				var imageUpload = await _imageHelper.Upload(viewModel.Title, viewModel.Photo);

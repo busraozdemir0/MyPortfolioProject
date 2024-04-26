@@ -6,7 +6,13 @@ namespace MyPortfolioProject.Controllers
 {
     public class ExperienceController : Controller
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public ExperienceController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult ExperienceList()
         {
             var values = _context.Experiences.ToList();

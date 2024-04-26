@@ -5,7 +5,13 @@ namespace MyPortfolioProject.ViewComponents
 {
     public class _AboutComponentPartial:ViewComponent
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public _AboutComponentPartial(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IViewComponentResult Invoke()
         {
             var value = _context.Abouts.Take(1).FirstOrDefault();

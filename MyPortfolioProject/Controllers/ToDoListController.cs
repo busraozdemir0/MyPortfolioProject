@@ -6,7 +6,13 @@ namespace MyPortfolioProject.Controllers
 {
     public class ToDoListController : Controller
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public ToDoListController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             var values = _context.ToDoLists.ToList();

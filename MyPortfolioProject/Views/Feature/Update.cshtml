@@ -1,4 +1,4 @@
-﻿@model Feature
+﻿@model FeatureUpdateViewModel
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -14,7 +14,7 @@
                         <div class="card-title">Öne Çıkan Yazı Güncelleme Sayfası</div>
                     </div>
                     <div class="card-body">
-                        <form method="post">
+                        <form asp-controller="Feature" asp-action="Update" method="post" enctype="multipart/form-data">
                             <input type="hidden" asp-for="Id" />
                             <label>Başlık</label>
                             <input type="text" asp-for="Title" class="form-control" />
@@ -22,6 +22,22 @@
                             <label>Açıklama</label>
                             <textarea rows="4" class="form-control" asp-for="Description"></textarea>
                             <br />
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label>Öne Çıkan Alan İçin Görsel</label>
+                                    <input type="file" asp-for="Photo" accept="image/*" class="form-control" />
+                                    <br />
+                                </div>
+                                <div class="col-md-7">
+                                    @if (Model.ImageId is not null)
+                                    {
+                                        <label>Mevcut Görsel</label>
+                                        <br />
+                                        <img src="~/images/@ViewBag.imageFileName" style="width:20em; height:12em;" />
+                                        <br />
+                                    }
+                                </div>
+                            </div>
                             <button class="btn btn-success">Güncelle</button>
                         </form>
 

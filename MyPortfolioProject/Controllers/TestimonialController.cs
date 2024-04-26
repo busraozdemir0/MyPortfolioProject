@@ -6,8 +6,14 @@ namespace MyPortfolioProject.Controllers
 {
 	public class TestimonialController : Controller
 	{
-		AppDbContext _context = new AppDbContext();
-		public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public TestimonialController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Index()
 		{
 			var values=_context.Testimonials.ToList();
 			return View(values);

@@ -6,7 +6,12 @@ namespace MyPortfolioProject.Controllers
 {
     public class SkillController : Controller
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+        public SkillController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             var skills = _context.Skills.ToList();

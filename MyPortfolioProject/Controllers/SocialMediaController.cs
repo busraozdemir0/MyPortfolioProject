@@ -6,7 +6,13 @@ namespace MyPortfolioProject.Controllers
 {
     public class SocialMediaController : Controller
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public SocialMediaController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             var values=_context.SocialMedias.ToList();

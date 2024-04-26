@@ -5,7 +5,13 @@ namespace MyPortfolioProject.ViewComponents
 {
     public class _FooterComponentPartial:ViewComponent
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public _FooterComponentPartial(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IViewComponentResult Invoke()
         {
             var values = _context.SocialMedias.ToList();

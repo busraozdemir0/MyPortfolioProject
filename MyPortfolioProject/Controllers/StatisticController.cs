@@ -5,7 +5,13 @@ namespace MyPortfolioProject.Controllers
 {
     public class StatisticController : Controller
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public StatisticController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             ViewBag.skillCount = _context.Skills.Count();

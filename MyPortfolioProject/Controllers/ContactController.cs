@@ -6,7 +6,13 @@ namespace MyPortfolioProject.Controllers
 {
     public class ContactController : Controller
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public ContactController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             var contact = _context.Contacts.FirstOrDefault();

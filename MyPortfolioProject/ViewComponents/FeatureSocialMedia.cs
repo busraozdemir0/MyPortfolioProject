@@ -6,8 +6,14 @@ namespace MyPortfolioProject.ViewComponents
 {
 	public class FeatureSocialMedia:ViewComponent
 	{
-		AppDbContext _context = new AppDbContext();
-		public IViewComponentResult Invoke()
+        private readonly AppDbContext _context;
+
+        public FeatureSocialMedia(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public IViewComponentResult Invoke()
 		{
 			var values = _context.SocialMedias.ToList();
 			return View(values);

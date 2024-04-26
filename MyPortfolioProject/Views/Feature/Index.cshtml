@@ -23,6 +23,10 @@
                                 <tr>
                                     <th scope="col">Başlık</th>
                                     <th scope="col">Açıklama</th>
+                                    @if (Model.ImageId is not null)
+                                    {
+                                        <th scope="col">Görsel</th>
+                                    }
                                     <th scope="col">Güncelle</th>
                                 </tr>
                             </thead>
@@ -30,6 +34,10 @@
                                 <tr>
                                     <td>@Model.Title</td>
                                     <td>@Model.Description</td>
+                                    @if (Model.ImageId is not null)
+                                    {
+                                        <td><img src="~/images/@Model.Image.FileName" style="width:10em; height:7em;" /></td>
+                                    }
                                     <td><a data-id="@ViewBag.featureId" asp-controller="Feature" asp-action="Update" asp-route-featureId="@ViewBag.featureId" class="btn btn-success">Güncelle</a></td>
                                 </tr>
                             </tbody>

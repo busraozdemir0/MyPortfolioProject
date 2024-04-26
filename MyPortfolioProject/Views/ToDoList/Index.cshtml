@@ -25,6 +25,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">İçerik</th>
                                     <th scope="col">Tarih</th>
+                                    <th scope="col">Icon Bilgisi</th>
                                     <th scope="col">Durum</th>
                                     <th scope="col">Sil</th>
                                     <th scope="col">Güncelle</th>
@@ -38,6 +39,7 @@
                                         <td>@count</td>
                                         <td>@item.Title</td>
                                         <td>@item.Date.ToShortDateString()</td>
+                                        <td>@item.ImageUrl</td>
                                         @if (item.Status == true)
                                         {
                                             <td><a href="/ToDoList/ChangeToDoListStatusToFalse/@item.Id" class="btn btn-outline-dark">Yapılmadı Olarak İşaretle</a></td>

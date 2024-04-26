@@ -5,7 +5,13 @@ namespace MyPortfolioProject.ViewComponents
 {
     public class _ExperienceComponentPartial:ViewComponent
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public _ExperienceComponentPartial(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IViewComponentResult Invoke()
         {
             var values = _context.Experiences.ToList();

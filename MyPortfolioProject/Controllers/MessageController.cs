@@ -6,8 +6,14 @@ namespace MyPortfolioProject.Controllers
 {
 	public class MessageController : Controller
 	{
-		AppDbContext _context = new AppDbContext();
-		public IActionResult Inbox()
+        private readonly AppDbContext _context;
+
+        public MessageController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Inbox()
 		{
 			var values = _context.Messages.ToList();
 			return View(values);

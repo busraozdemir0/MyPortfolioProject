@@ -8,7 +8,10 @@ namespace MyPortfolioProject.DAL.Extensions
 	{
 		public static IServiceCollection LoadDataLayerExtension(this IServiceCollection services, IConfiguration config)
 		{
-			services.AddScoped<IImageHelper, ImageHelper>(); // Gorselleri Image tablosunda tutacagimiz icin Helper yazdik.
+            services.AddDbContext<AppDbContext>();
+
+            services.AddScoped<IImageHelper, ImageHelper>(); // Gorselleri Image tablosunda tutacagimiz icin Helper yazdik.
+			
 
 			return services;
 		}

@@ -6,8 +6,14 @@ namespace MyPortfolioProject.Controllers
 {
 	public class AboutController : Controller
 	{
-		AppDbContext _context = new AppDbContext();
-		public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public AboutController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Index()
 		{
 			var about=_context.Abouts.FirstOrDefault();
 			ViewBag.aboutId = about.Id;

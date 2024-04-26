@@ -5,7 +5,13 @@ namespace MyPortfolioProject.ViewComponents
 {
     public class _StatisticComponentPartial:ViewComponent
     {
-        AppDbContext _context = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public _StatisticComponentPartial(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IViewComponentResult Invoke()
         {
             ViewBag.ExperienceCount = _context.Experiences.Count();
