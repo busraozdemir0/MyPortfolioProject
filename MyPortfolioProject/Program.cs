@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using MyPortfolioProject.DAL.Context;
+using MyPortfolioProject.DAL.Entities;
 using MyPortfolioProject.DAL.Extensions;
 using MyPortfolioProject.Helpers.Images;
 
@@ -8,6 +12,24 @@ builder.Services.LoadDataLayerExtension(builder.Configuration); // ImageHelper i
 // Add services to the container.
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation(); // Kaydedilenler anlik olarak yansimasi icin
+
+builder.Services.AddSession();
+
+builder.Services.AddAuthentication(
+      CookieAuthenticationDefaults.AuthenticationScheme)
+          .AddCookie(x =>
+          {
+              x.LoginPath = "/AdminLogin/Index";  // Giris yapmadiginda bu sayfaya yonlendirecek
+          }
+      );
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); //siteye login olduktan 60 dk sonra otomatik cikis yapar
+    options.LoginPath = "/AdminLogin/Index/";
+    options.SlidingExpiration = true;
+});
 
 var app = builder.Build();
 
@@ -22,8 +44,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

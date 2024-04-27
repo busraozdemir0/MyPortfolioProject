@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolioProject.DAL.Context;
 using MyPortfolioProject.DAL.Entities;
 
 namespace MyPortfolioProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SocialMediaController : Controller
     {
         private readonly AppDbContext _context;

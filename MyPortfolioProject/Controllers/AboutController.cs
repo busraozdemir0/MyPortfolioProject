@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolioProject.DAL.Context;
 using MyPortfolioProject.DAL.Entities;
 
 namespace MyPortfolioProject.Controllers
 {
-	public class AboutController : Controller
+    [Authorize(Roles = "Admin")] // Bu tarz sayfalara erisim icin kullanicinin Admin yetkisinin olmasi lazim
+    public class AboutController : Controller
 	{
         private readonly AppDbContext _context;
 

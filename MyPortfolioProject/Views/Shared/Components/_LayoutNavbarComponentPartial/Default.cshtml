@@ -13,16 +13,6 @@
     <nav class="navbar navbar-header navbar-expand-lg">
         <div class="container-fluid">
 
-            <form class="navbar-left navbar-form nav-search mr-md-3" action="">
-                <div class="input-group">
-                    <input type="text" placeholder="Aranacak Kelimeyi Giriniz ..." class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="la la-search search-icon"></i>
-                        </span>
-                    </div>
-                </div>
-            </form>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 
 
@@ -96,12 +86,10 @@
                         </li>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><i class="ti-user"></i>Profilim</a>
-                        <a class="dropdown-item" href="#"></i> Siteye Git</a>
-                        <a class="dropdown-item" href="#"><i class="ti-email"></i> Gelen Mesajlar</a>
+                        <a class="dropdown-item" asp-controller="Default" asp-action="Index"></i> Siteye Git</a>
+                        <a class="dropdown-item" asp-controller="Message" asp-action="Inbox"><i class="ti-email"></i> Gelen Mesajlar</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="ti-settings"></i> Şifre Değiştir</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Çıkış Yap</a>
+                        <a class="dropdown-item" asp-controller="AdminLogin" asp-action="LogOut"><i class="fa fa-power-off"></i> Çıkış Yap</a>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>

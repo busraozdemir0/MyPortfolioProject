@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolioProject.DAL.Context;
 using MyPortfolioProject.DAL.Entities;
@@ -7,6 +8,7 @@ using MyPortfolioProject.Models;
 
 namespace MyPortfolioProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FeatureController : Controller
     {
         private readonly AppDbContext _context;
