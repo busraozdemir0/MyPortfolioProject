@@ -80,12 +80,12 @@
                                 <div class="u-img"><img src="~/Admin-theme/assets/img/profile.jpg" alt="user"></div>
                                 <div class="u-text">
                                     <h4>Admin</h4>
-                                    <p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Profili Gör</a>
+                                    <p class="text-muted">hello@themekita.com</p><a asp-controller="Profile" asp-action="Update" class="btn btn-rounded btn-danger btn-sm">Profili Gör</a>
                                 </div>
                             </div>
                         </li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="ti-user"></i>Profilim</a>
+                        <a class="dropdown-item" asp-controller="Profile" asp-action="Update"><i class="ti-user"></i>Profilim</a>
                         <a class="dropdown-item" asp-controller="Default" asp-action="Index"></i> Siteye Git</a>
                         <a class="dropdown-item" asp-controller="Message" asp-action="Inbox"><i class="ti-email"></i> Gelen Mesajlar</a>
                         <div class="dropdown-divider"></div>

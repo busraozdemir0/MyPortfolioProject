@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using MyPortfolioProject.DAL.Context;
 using MyPortfolioProject.DAL.Entities;
 using MyPortfolioProject.DAL.Extensions;
-using MyPortfolioProject.Helpers.Images;
 
 var builder = WebApplication.CreateBuilder(args);
 
