@@ -15,7 +15,6 @@
 
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 
-
                 @await Component.InvokeAsync("UnreadMessageList")
 
                 <li class="nav-item dropdown hidden-caret">
@@ -73,14 +72,31 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="~/Admin-theme/assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span>Admin</span></span> </a>
+                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                        @if (ViewBag.userImageId is not null)
+                        {
+                            <img src="~/images/@ViewBag.UserImage" alt="user-img" width="36" class="img-circle">
+                        }
+                        else
+                        {
+                            <img src="~/icons/user-avatar-profile.png" alt="user-img" width="36" class="img-circle">
+                        }
+                        <span>@ViewBag.UserName</span>
+                    </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
                             <div class="user-box">
-                                <div class="u-img"><img src="~/Admin-theme/assets/img/profile.jpg" alt="user"></div>
+                                <div class="u-img">
+                                    @if (ViewBag.userImageId is not null)
+                                    {
+                                        <img src="~/images/@ViewBag.UserImage" alt="user">
+                                    }else{
+                                        <img src="~/icons/user-avatar-profile.png" alt="user">
+                                    }
+                                </div>
                                 <div class="u-text">
-                                    <h4>Admin</h4>
-                                    <p class="text-muted">hello@themekita.com</p><a asp-controller="Profile" asp-action="Update" class="btn btn-rounded btn-danger btn-sm">Profili Gör</a>
+                                    <h4>@ViewBag.UserName</h4>
+                                    <p class="text-muted">@ViewBag.UserMail</p><a asp-controller="Profile" asp-action="Update" class="btn btn-rounded btn-danger btn-sm">Profili Gör</a>
                                 </div>
                             </div>
                         </li>

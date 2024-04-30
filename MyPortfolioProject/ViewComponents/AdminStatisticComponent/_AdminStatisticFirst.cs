@@ -18,6 +18,11 @@ namespace MyPortfolioProject.ViewComponents.AdminStatisticComponent
 			ViewBag.messageCount = _context.Messages.Count();
 			ViewBag.falseMessageCount = _context.Messages.Where(x => x.IsRead == false).Count(); // Okunmayan mesaj sayisi
 			ViewBag.trueMessageCount = _context.Messages.Where(x => x.IsRead == true).Count(); // Okunan mesaj sayisi
+
+			ViewBag.experienceCount = _context.Experiences.Count();
+			ViewBag.portfolioCount = _context.Portfolios.Count();
+			ViewBag.toDoListCount = _context.ToDoLists.Where(x => x.Status==false).Count(); // Yapilmamis hatirtatici sayisi
+			ViewBag.testimonialCount = _context.Testimonials.Count();
 			
 			return View();
 		}

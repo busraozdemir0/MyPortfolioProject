@@ -2,13 +2,20 @@
     <div class="scrollbar-inner sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="~/Admin-theme/assets/img/profile.jpg">
+                @if (ViewBag.userImageId is not null)
+                {
+                    <img src="~/images/@ViewBag.UserImage">
+                }
+                else
+                {
+                    <img src="~/icons/user-avatar-profile.png">
+                }
             </div>
             <div class="info">
                 <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                     <span>
-                        Büşra Özdemir
-                        <span class="user-level">Admin</span>
+                        @ViewBag.NameSurname
+                        <span class="user-level">@ViewBag.UserName</span>
                         <span class="caret"></span>
                     </span>
                 </a>
@@ -38,7 +45,7 @@
                     <p>Gelen Kutusu</p>
                 </a>
             </li>
-          
+
             <li class="nav-item">
                 <a asp-controller="ToDoList" asp-action="Index">
                     <i class="la la-bell"></i>
