@@ -14,6 +14,8 @@
   - ASP.NET Core MVC 6.0
   - Entity Framework Core ORM
   - MS SQL Server
+  - Code First
+  - Dependency Injection
   - LINQ
   - Identity
   - Authentication
