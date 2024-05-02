@@ -1,16 +1,10 @@
-# MyPortfolio Kişisel Web Sitesi
-### MyPortfolio kişisel bir web sitesidir. Bu proje kısaca şu bölümleri içermektedir:
-  - Özellikler
-  - Hakkımda
-  - Yetenekler ve İlgi Alanları
-  - Deneyimlerim
-  - Son Projelerim
-  - Görüşler
-  - İletişim
-  - Alt Bilgi ve Sosyal Medyalar
+# Udemy Asp.Net Core ile Portfolyo Uygulaması
+### Bu proje Murat Yücedağ'ın Udemy platformu üzerinden ücretsiz ve 2 part olarak yayınladığı Portfolyo (MyPortfolio) projesidir.
+###
+### Proje benim ilgi ve yeteneklerimin, deneyimlerimin, referanslarımın barındırıldığı kişisel bir web sitesidir. Sitenin admin paneline erişebilmek için sistemde oturum açmak gerekmektedir. Admin paneli ise site ile ilgili istatistiklerin görüntülenebildiği, admin bilgilerinin güncellenebildiği, ana sayfa üzerinden gelen mesajların görüntülenebildiği, admin'in kendisine ait hatırlatıcılar (To Do List) ekleyebildiği, deneyim & yetenek & sosyal medya & portfolyo gibi alanlarda CRUD işlemlerinin yapılabildiği bir paneldir.
+###
 
-# Kullandığım Teknolojiler
-  - C#
+# Kullanılan Teknolojiler
   - ASP.NET Core MVC 6.0
   - Entity Framework Core ORM
   - MS SQL Server
@@ -28,6 +22,9 @@
   - CRUD İşlemleri
   - Görsel Yükleme ve Güncelleme İşlemleri
   - Responsive Tasarım
+
+# Kullanılan Framework Sürümü
+  - Entitty Framework 6.0
 
 # Sitenin Görselleri
 
