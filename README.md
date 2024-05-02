@@ -1,7 +1,7 @@
 # Udemy Asp.Net Core ile Portfolyo Uygulaması
-#### Bu proje Murat Yücedağ'ın Udemy platformu üzerinden ücretsiz ve 2 part olarak yayınladığı Portfolyo (MyPortfolio) projesidir.
+Bu proje Murat Yücedağ'ın Udemy platformu üzerinden ücretsiz ve 2 part olarak yayınladığı Portfolyo (MyPortfolio) projesidir.
 ###
-#### MyPortfolio, benim ilgi ve yeteneklerimin, deneyimlerimin, referanslarımı içeren kişisel bir web sitesidir. Sitenin admin paneline erişebilmek ve siteyi yönetebilmek için sistemde oturum açmak gerekmektedir. Admin paneli ise site ile ilgili istatistiklerin görüntülenebildiği, admin bilgilerinin güncellenebildiği, ana sayfa üzerinden gelen mesajların görüntülenebildiği, admin'in kendisine ait hatırlatıcılar (To Do List) ekleyebildiği, deneyim & yetenek & sosyal medya & portfolyo gibi alanlarda CRUD işlemlerinin barındırıldığı bir paneldir.
+MyPortfolio, benim ilgi ve yeteneklerimin, deneyimlerimin, referanslarımı içeren kişisel bir web sitesidir. Sitenin admin paneline erişebilmek ve siteyi yönetebilmek için sistemde oturum açmak gerekmektedir. Admin paneli ise site ile ilgili istatistiklerin görüntülenebildiği, admin bilgilerinin güncellenebildiği, ana sayfa üzerinden gelen mesajların görüntülenebildiği, admin'in kendisine ait hatırlatıcılar (To Do List) ekleyebildiği, deneyim & yetenek & sosyal medya & portfolyo gibi alanlarda CRUD işlemlerinin barındırıldığı bir paneldir.
 ###
 
 # Kullanılan Teknolojiler
